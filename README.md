@@ -1,4 +1,4 @@
-# 3DinfoCPI
+# 3DinforCPI
 
 A Pytorch Implementation of paper:
 **3DInforCPI:Enhancing Compound-Protein Interaction Prediction Efficiency through Novel Perspectives on 3D Information Integration**
