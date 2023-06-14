@@ -18,9 +18,9 @@ data_folder: Folder of dataset
   ~~~
 2. Calcualte the Carbon Alpha Carbon distance.
 ```
-input_folder : Output folder from ESM prediction.
+input_folder: Output folder from ESM prediction.
 
-output_folder : Folder of processed file
+output_folder: Folder of processed file
 
 data_name: Name of dataset
 ```
@@ -30,11 +30,11 @@ data_name: Name of dataset
 
   3. Align the training dataset following the output of ESM. (FOR training and testing purpose)
 ```
-data_folder : Folder of Training dataset
+data_folder: Folder of Training dataset
 
-output_folder : Folder of processed file
+output_folder: Folder of processed file
 
-prot_dict : _data.csvdic.csv file in output folder of ESM prediction.
+prot_dict: _data.csvdic.csv file in output folder of ESM prediction.
 ```
   ~~~
   python match_protein_index_esm.py #data_folder #output_folder #prot_dict
