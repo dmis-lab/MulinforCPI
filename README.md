@@ -6,7 +6,8 @@ A Pytorch Implementation of paper:
 
 Our reposistory uses 3DInformax from https://github.com/HannesStark/3DInfomax as a backbone for pretraining PNA for compound information extraction and ESM_Fold from https://github.com/facebookresearch/esm for predicting protein fold.
 
-## 4.**To train YOUR model:**
+## **To train YOUR model:**
+
 Your data should be in the format csv, and the column names are: 'smiles','sequence','label'.
 1. Generate the 3D fold of protein from the dataset.
 
