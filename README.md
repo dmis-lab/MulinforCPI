@@ -10,7 +10,7 @@ Our reposistory uses 3DInformax from https://github.com/HannesStark/3DInfomax as
 
 Your data should be in the format csv, and the column names are: 'smiles','sequence','label'.
 1. Generate the 3D fold of protein from the dataset.
-
+```
 data_folder: Folder of dataset
   ~~~
   python generate_protein_fold.py #data folder
@@ -37,3 +37,4 @@ prot_dict : _data.csvdic.csv file in output folder of ESM prediction.
   ~~~
   python match_protein_index_esm.py #data_folder #output_folder #prot_dict
   ~~~
+```
