@@ -25,7 +25,7 @@ output_folder: Folder of processed file
 data_name: Name of dataset
 ```
   ~~~
-  python positional_ebedding_dist.py #input_folder #output_folder #data_name
+  python generate_distance_map.py #input_folder #output_folder #data_name
   ~~~
 
   3. Align the training dataset following the output of ESM. (FOR data making purpose)
