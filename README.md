@@ -28,7 +28,7 @@ data_name: Name of dataset
   python positional_ebedding_dist.py #input_folder #output_folder #data_name
   ~~~
 
-  3. Align the training dataset following the output of ESM. (FOR training and testing purpose)
+  3. Align the training dataset following the output of ESM. (FOR data making purpose)
 ```
 data_folder: Folder of Training dataset
 
