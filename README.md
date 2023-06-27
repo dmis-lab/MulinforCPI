@@ -8,14 +8,14 @@ Our repository uses 3DInformax from https://github.com/HannesStark/3DInfomax as 
 
 ## **To train YOUR model:**
 
-Your data should be in the format csv, and the column names are: 'smiles', 'sequence', 'label'.
+Your data should be in the format .csv, and the column names are: 'smiles', 'sequence', 'label'.
 1. Generate the 3D fold of protein from the dataset.<br />
 `data_folder: Folder of dataset`<br />
   ~~~
   python generate_protein_fold.py #data folder
   ~~~
-2. Calculate the Carbon Alpha Carbon distance.<br />
-`input_folder: Output folder from ESM prediction.`<br />
+2. Calculate the Alpha Carbon distances.<br />
+`input_folder: Output folder from ESM prediction.(Output of step 1.)`<br />
 `output_folder: Folder of processed file`<br />
 `data_name: Name of dataset`<br />
   ~~~
@@ -33,15 +33,20 @@ Your data should be in the format csv, and the column names are: 'smiles', 'sequ
 
 4. Generate the pickle .pt file for training <br />
 `data name: Folder of Training dataset` <br />
-`data_path: Output of step 3.` <br />
-`output_file: Folder of Training dataset` <br />
-`distance metric pt file: Output of step 2.` <br />
-`esm prediction folder: Output of step 1.` <br />
+`data_path: Aligned dataset (Output of step 3.)` <br />
+`output_folder: Folder of Training dataset` <br />
+`distance metric pt file: Alpha Carbon distances. ( Output of step 2.)` <br />
+`esm prediction folder: Output folder from ESM prediction. (Output of step 1.)` <br />
 
   ~~~
-  python create_train_cuscpidata_ecfp.py data_name data_path output_file distance_metric_pdb_file esm_prediction_folder 
+  python create_train_cuscpidata_ecfp.py data_name data_path output_folder distance_metric_pdb_file esm_prediction_folder 
   ~~~
-5. Train the model<br />
+5. Train the model <br />
+  `data_path: the processed data in .pt format ( Output form step 4.)`
+  ~~~
+  python train_cuscpi.py data_path --config best_configs/tune_cus_cpi.yml
+  ~~~
+
 ## **To take inference:**
   Change the test_data_path and checkpoint in best_configs/inference_cpi.yml <br />
   ~~~
