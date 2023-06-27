@@ -31,6 +31,17 @@ Your data should be in the format csv, and the column names are: 'smiles', 'sequ
   python match_protein_index_esm.py #data_folder #output_folder #prot_dict
   ~~~
 
+4. Generate the pickle .pt file for training <br />
+`data name: Folder of Training dataset` <br />
+`data_path: Output of step 3.` <br />
+`output_file: Folder of Training dataset` <br />
+`distance metric pt file: Output of step 2.` <br />
+`esm prediction folder: Output of step 1.` <br />
+
+  ~~~
+  python create_train_cuscpidata_ecfp.py data_name data_path output_file distance_metric_pdb_file esm_prediction_folder 
+  ~~~
+
 ## **To take inference:**
   Change the test_data_path and checkpoint in best_configs/inference_cpi.yml <br />
   ~~~
