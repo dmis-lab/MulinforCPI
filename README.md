@@ -9,25 +9,31 @@ Our reposistory uses 3DInformax from https://github.com/HannesStark/3DInfomax as
 ## **To train YOUR model:**
 
 Your data should be in the format csv, and the column names are: 'smiles','sequence','label'.
-1. Generate the 3D fold of protein from the dataset.
-`data_folder: Folder of dataset`
+1. Generate the 3D fold of protein from the dataset.<br />
+`data_folder: Folder of dataset`<br />
   ~~~
   python generate_protein_fold.py #data folder
   ~~~
-2. Calcualte the Carbon Alpha Carbon distance.
-`input_folder: Output folder from ESM prediction.`
-`output_folder: Folder of processed file`
-`data_name: Name of dataset`
+2. Calcualte the Carbon Alpha Carbon distance.<br />
+`input_folder: Output folder from ESM prediction.`<br />
+`output_folder: Folder of processed file`<br />
+`data_name: Name of dataset`<br />
   ~~~
   python generate_distance_map.py #input_folder #output_folder #data_name
   ~~~
 
-  3. Align the training dataset following the output of ESM. (FOR data making purpose)
-`data_folder: Folder of Training dataset`
-`output_folder: Folder of processed file`
-`prot_dict: _data.csvdic.csv file in output folder of ESM prediction.`
+  3. Align the training dataset following the output of ESM. (FOR data making purpose)<br />
+`data_folder: Folder of Training dataset` <br />
+`output_folder: Folder of processed file` <br />
+`prot_dict: _data.csvdic.csv file in output folder of ESM prediction.`<br />
 
   ~~~
   python match_protein_index_esm.py #data_folder #output_folder #prot_dict
   ~~~
 
+
+
+
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
