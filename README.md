@@ -41,7 +41,7 @@ Your data should be in the format csv, and the column names are: 'smiles', 'sequ
   ~~~
   python create_train_cuscpidata_ecfp.py data_name data_path output_file distance_metric_pdb_file esm_prediction_folder 
   ~~~
-
+5. Train the model<br />
 ## **To take inference:**
   Change the test_data_path and checkpoint in best_configs/inference_cpi.yml <br />
   ~~~
