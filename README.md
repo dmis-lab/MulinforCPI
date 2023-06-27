@@ -6,6 +6,15 @@ A PyTorch Implementation of Paper:
 
 Our repository uses 3DInformax from https://github.com/HannesStark/3DInfomax as a backbone for pretraining PNA for compound information extraction and ESM_Fold from https://github.com/facebookresearch/esm for predicting protein fold.
 
+## **Clustering the dataset:**
+In our experiment we use cross, we used the cross-cluster validation technique. Leave one out for testing while the validation set is randomly taken from training set with the ratio 20/80.<br />
+  `data_file: The file contains dataset (Davis,KIBA,metz)`<br />
+  `output_file: The folder contains five clusters`<br />
+  ~~~
+  python prepare_cluster_data_2023 #data_file #output_file
+  ~~~
+
+
 ## **To train YOUR model:**
 
 Your data should be in the format .csv, and the column names are: 'smiles', 'sequence', 'label'.
