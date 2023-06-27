@@ -26,7 +26,6 @@ Your data should be in the format .csv, and the column names are: 'smiles', 'seq
 `data_folder: Folder of Training dataset` <br />
 `output_folder: Folder of processed file` <br />
 `prot_dict: _data.csvdic.csv file in output folder of ESM prediction.`<br />
-
   ~~~
   python match_protein_index_esm.py #data_folder #output_folder #prot_dict
   ~~~
@@ -48,7 +47,7 @@ Your data should be in the format .csv, and the column names are: 'smiles', 'seq
   ~~~
 
 ## **To take inference:**
-  Change the test_data_path and checkpoint in best_configs/inference_cpi.yml <br />
+  Change the `test_data_path` and `checkpoint` in best_configs/inference_cpi.yml to take the inference (with `test_data_path` in made following step 1-2-3) <br />
   ~~~
   python inferencecpi.py --config=best_configs/inference_cpi.yml
   ~~~
