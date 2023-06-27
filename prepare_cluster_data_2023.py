@@ -258,6 +258,6 @@ def make_val_set_fromhard(input_file_train,input_file_test,folder,fold):
     save_csv(train_datafame_after, test_dataframe, val_dataframe, headers, folder, 'novel_pair',fold)        
 
 if __name__ == '__main__':
-    out_put_folder = r'C:\Users\DMIS_Quang\Desktop\project\dataset\kiba_davis_deeppurpose\data_cluster_metz1'
-    input_file = r'C:\Users\DMIS_Quang\Desktop\project\dataset\dataset_for_clusters_using___\davis_data.csv'
+    out_put_folder = r'.\data_cluster'
+    input_file = r'.\davis_data.csv'
     main(input_file,out_put_folder)
