@@ -14,7 +14,7 @@ import numpy as np
 from sklearn.model_selection import KFold
 from tqdm import tqdm
 import os
-from sklearn.metrics import jaccard_score, silhouette_score
+from sklearn.metrics import jaccard_score, silhouette_score , accuracy_score
 
 
 tokenizer = TAPETokenizer(vocab='unirep')
@@ -236,7 +236,8 @@ def check_dup(folder):
         i = 0
         for seqtest_fp in sequence_fingerprint_test:
             for seqtrain_fp in sequence_fingerprint_train:
-                jac_sim_seq.append(np.mean(jaccard_score(seqtest_fp, seqtrain_fp, average="weighted")))
+                jac_sim_seq1 = accuracy_score(seqtest_fp, seqtrain_fp)
+                jac_sim_seq.append(jac_sim_seq1)
         i = 0
         for i, morgantest_fp in enumerate(morgan_fingerprint_test):
             for morganfptrain_fp in morgan_fingerprint_train:  
@@ -258,6 +259,6 @@ def make_val_set_fromhard(input_file_train,input_file_test,folder,fold):
     save_csv(train_datafame_after, test_dataframe, val_dataframe, headers, folder, 'novel_pair',fold)        
 
 if __name__ == '__main__':
-    out_put_folder = r'.\data_cluster'
-    input_file = r'.\davis_data.csv'
+    out_put_folder = str(sys.argv[2])
+    input_file = str(sys.argv[1])
     main(input_file,out_put_folder)
