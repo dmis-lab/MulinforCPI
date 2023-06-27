@@ -13,8 +13,8 @@ In our experiment we use cross, we used the cross-cluster validation technique. 
   ~~~
   python prepare_cluster_data_2023 #data_file #output_file
   ~~~
+![Imagecluster](images/PCA_clustering.png)
 
-![PCA_clustering](https://github.com/dmis-lab/3Dinfor_CPI/assets/32150689/236d0f36-34ca-427d-8c99-8a1fba57569b)
 
 ## **To train YOUR model:**
 
