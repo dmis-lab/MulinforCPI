@@ -13,7 +13,8 @@ In our experiment we use cross, we used the cross-cluster validation technique. 
   ~~~
   python prepare_cluster_data_2023 #data_file #output_file
   ~~~
-![Imagecluster](images/PCA_clustering.png)
+<img src="images/PCA_clustering.png" alt="Image" width="600" >
+
 
 
 ## **To train YOUR model:**
