@@ -54,7 +54,7 @@ Your data should be in the format .csv, and the column names are: 'smiles', 'seq
 5. Train the model <br />
   `data_path: the processed data in .pt format ( Output form step 4.)` <br />
   ~~~
-  python train_cuscpi.py #data_path --config best_configs/tune_cus_cpi.yml
+  python train_cuscpi.py --config best_configs/tune_cus_cpi.yml
   ~~~
 
 ## **To take inference:**
