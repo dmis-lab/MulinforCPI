@@ -9,9 +9,9 @@ Our repository uses 3DInformax from https://github.com/HannesStark/3DInfomax as 
 ## **Clustering the dataset:**
 In our experiment we use cross, we used the cross-cluster validation technique. Leave one out for testing while the validation set is randomly taken from training set with the ratio 20/80.<br />
   `data_file: The file contains dataset (Davis,KIBA,metz)`<br />
-  `output_file: The folder contains five clusters`<br />
+  `output_folder: The folder contains five clusters`<br />
   ~~~
-  python prepare_cluster_data_2023 #data_file #output_file
+  python prepare_cluster_data_2023 #data_file #output_folder
   ~~~
 <img src="images/PCA_clustering.png" alt="Image" width="600" >
 
@@ -23,7 +23,7 @@ Your data should be in the format .csv, and the column names are: 'smiles', 'seq
 1. Generate the 3D fold of protein from the dataset.<br />
 `data_folder: Folder of dataset`<br />
   ~~~
-  python generate_protein_fold.py #data folder
+  python generate_protein_fold.py #data_folder
   ~~~
 2. Calculate the Alpha Carbon distances.<br />
 `input_folder: Output folder from ESM prediction.(Output of step 1.)`<br />
@@ -52,7 +52,7 @@ Your data should be in the format .csv, and the column names are: 'smiles', 'seq
   python create_train_cuscpidata_ecfp.py #data_name #data_path #output_folder #distance_metric_pdb_file #esm_prediction_folder 
   ~~~
 5. Train the model <br />
-  `data_path: the processed data in .pt format ( Output form step 4.)` <br />
+ Change the `data_path: the processed data folder in .pt format ( Output form step 4.)` in `best_configs/tune_cus_cpi.yml`  <br />
   ~~~
   python train_cuscpi.py --config best_configs/tune_cus_cpi.yml
   ~~~
