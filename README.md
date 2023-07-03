@@ -52,7 +52,7 @@ Your data should be in the format .csv, and the column names are: 'smiles', 'seq
   python create_train_cuscpidata_ecfp.py #data_name #data_path #output_folder #distance_metric_pdb_file #esm_prediction_folder 
   ~~~
 5. Train the model <br />
- Change the `data_path: the processed data folder in .pt format ( Output form step 4.)` in `best_configs/tune_cus_cpi.yml`  <br />
+ Change the `data_path: the processed data folder in .pt format ( Output of step 4.)` in `best_configs/tune_cus_cpi.yml`  <br />
   ~~~
   python train_cuscpi.py --config best_configs/tune_cus_cpi.yml
   ~~~
