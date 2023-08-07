@@ -1,0 +1,2 @@
+test_data_path: /ssd0/quang/dti2d/dataset/cluster_validation_dif/case_pair0davis_processed/casestudy.csv/studyprocessed.pt
+checkpoint: /ssd1/quang/dti2d/3dinfomax_1/check/for_ablation/model_real/runs/PNAcpi_qm9_tune_cus_cpi_newpair_123_26-05_11-51-03/best_checkpoint.pt

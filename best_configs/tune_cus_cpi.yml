@@ -1,0 +1,98 @@
+experiment_name: 'tune_cus_cpi_newpair'
+multithreaded_seeds:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+
+transfer_layers:
+  - gnn
+exclude_from_transfer:
+  - batch_norm
+
+pretrain_checkpoint: runs/PNA_qmugs_NTXentMultiplePositives_620000_123_25-08_09-19-52/best_checkpoint_35epochs.pt
+num_epochs: 100
+batch_size: 100
+log_iterations: 30
+patience: 10
+minimum_epochs: 50
+#classification
+#loss_func: BCELoss
+#regression
+loss_func: MSELoss
+
+metrics:
+  - mse
+  - mae
+main_metric_goal: min
+main_metric: mse
+
+optimizer: Adam
+optimizer_params:
+  lr: 1.0e-4
+
+scheduler_step_per_batch: False
+lr_scheduler: WarmUpWrapper
+lr_scheduler_params:
+  warmup_steps: [100,50,30]
+  interpolation: 'linear'
+  # parameters of scheduler to run after warmup
+  wrapped_scheduler: ReduceLROnPlateau
+  factor: 0.5
+  patience: 25
+  min_lr: 1.0e-6
+  mode: 'min'
+  verbose: True
+
+
+# Model parameters
+model_type: 'PNAcpi'
+model_parameters:
+  target_dim: 1
+  hidden_dim: 200
+  mid_batch_norm: True
+  last_batch_norm: True
+  readout_batchnorm: True
+  # e^(log(forgetfulness ~0.001)/number of steps per epoch) = batch_norm_momentum   =>  e^(log(0.001)/100) = 0.970
+  batch_norm_momentum: 0.1
+  readout_hidden_dim: 200
+  readout_layers: 2
+  dropout: 0.1
+  propagation_depth: 7
+  aggregators:
+    - mean
+    - max
+    - min
+    - std
+  scalers:
+    - identity
+    - amplification
+    - attenuation
+  readout_aggregators:
+    - min
+    - max
+    - mean
+    - sum
+  pretrans_layers: 2
+  posttrans_layers: 1
+  residual: True
+  params_1d:
+    - 4000
+    - 500
+  params_res_1d:
+    - 65
+    - 7
+    - 3
+  params_2d:
+    - 3
+    - 4
+    - 5
+    - 2
+
+
+
+
+data_path: '/ssd0/quang/dti2d/dataset/cluster_validation_dif/davis_processed'
+result_file: 'novelpairlr02_100_10'
