@@ -17,7 +17,7 @@ In our experiment we use cross, we used the cross-cluster validation technique. 
 
 
 
-## **To train YOUR model:**
+## **To train 3DinforCPI model:**
 
 Your data should be in the format .csv, and the column names are: 'smiles', 'sequence', 'label'.
 1. Generate the 3D fold of protein from the dataset.<br />
