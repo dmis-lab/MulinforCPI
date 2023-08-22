@@ -33,7 +33,7 @@ Your data should be in the format .csv, and the column names are: 'smiles', 'seq
   python generate_distance_map.py #input_folder #output_folder #data_name
   ~~~
 
-  3. Align the training dataset following the output of ESM. (FOR data-making purposes)<br />
+  3. Align the training dataset following the output of . (FOR data-making purposes)<br />
 `data_folder: Folder of Training dataset` <br />
 `output_folder: Folder of processed file` <br />
 `prot_dict: _data.csvdic.csv file in output folder of ESM prediction.`<br />
