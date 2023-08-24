@@ -30,6 +30,8 @@ Your data should be in the format .csv, and the column names are: 'smiles', 'seq
   python generate_protein_fold.py #data_folder
   ~~~
 <img src="images/ESM_output.png" alt="Image" width="600" >
+The output of ESM fold. The 3D fold contains 1) The Card, 2) Atom Number, 3) Atom Type, 4) Three-Letter Amino Acid Code, 5) Chain ID, 6) Residue Number, 7) Atom Coordinates, 8) Atom Occupancy, 9) Atomic Displacement Parameter, 10) Element.
+
 2. Calculate the Alpha Carbon distances.<br />
 `input_folder: Output folder from ESM prediction.(Output of step 1.)`<br />
 `output_folder: Folder of processed file`<br />
