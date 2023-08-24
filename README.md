@@ -63,6 +63,16 @@ The output of ESM fold. The 3D fold contains 1) The Card, 2) Atom Number, 3) Ato
   ~~~
   python train_cuscpi.py --config best_configs/tune_cus_cpi.yml
   ~~~
+## **Dataset:**
+The related links are as follows: <br />
+
+KIBA, Davis:https://github.com/kexinhuang12345/DeepPurpose <br />
+Metz: https://github.com/sirimullalab/KinasepKipred <br />
+BindingDB: https://github.com/IBM/InterpretableDTIP <br />
+DUD-E Diverse: http://dude.docking.org/subsets/diverse <br />
+QMugs: https://libdrive.ethz.ch/index.php/s/X5vOBNSITAG5vzM <br />
+CASF-2016: http://www.pdbbind.org.cn/casf.php <br />
+
 
 ## **To take inference:**
   Change the `test_data_path` and `checkpoint` in best_configs/inference_cpi.yml to take the inference (with `test_data_path` in made following step 1-2-3) <br />
