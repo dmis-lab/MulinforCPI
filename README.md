@@ -5,6 +5,8 @@ A PyTorch Implementation of Paper:
 **3DinforCPI: Enhancing Compound-Protein Interaction Prediction Efficiency through Novel Perspectives on multi-Level Information Integration**
 
 Our repository uses 3DInformax from https://github.com/HannesStark/3DInfomax as a backbone for pretraining PNA for compound information extraction and ESM_Fold from https://github.com/facebookresearch/esm for predicting protein fold.
+
+Forecasting the interaction between compounds and proteins is crucial for discovering new drugs. However, several commonly used computational techniques assume that the molecules or proteins in the test set have already been observed during the training phase. This assumption might not remain valid in real-life scenarios, where the test and training data could exhibit varying distributions and stem from distinct domains. Moreover, previous studies have not utilized three-dimensional (3D) information on compounds and proteins to predict binding affinity. Here, we propose a two-step deep learning strategy named 3DinforCPI that incorporates transfer learning techniques with multi-level resolution features to overcome these limitations. Our approach leverages 3D information from both proteins and compounds and acquires a profound understanding of the atomic-level features of proteins. We applied our approach to six datasets: Davis, Metz, KIBA, CASF-2016, DUD-E, and BindingDB, to evaluate the effectiveness of our approach.
 <img src="images/architecture2.PNG" alt="Image" width="1000" >
 
 
