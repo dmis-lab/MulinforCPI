@@ -5,7 +5,7 @@ A PyTorch Implementation of Paper:
 **3DinforCPI: Enhancing Compound-Protein Interaction Prediction Efficiency through Novel Perspectives on multi-Level Information Integration**
 
 Our repository uses 3DInformax from https://github.com/HannesStark/3DInfomax as a backbone for pretraining PNA for compound information extraction and ESM_Fold from https://github.com/facebookresearch/esm for predicting protein fold.
-<img src="images/architecture2.PNG" alt="Image" width="600" >
+<img src="images/architecture2.PNG" alt="Image" width="1000" >
 
 
 ## **Clustering the dataset:**
