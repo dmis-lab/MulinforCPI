@@ -60,7 +60,7 @@ The output of ESM fold. The 3D fold contains 1) The Card, 2) Atom Number, 3) Ato
   ~~~
 5. Train the model <br />
  Change the `data_path: the processed data folder in .pt format ( Output of step 4.)` in `best_configs/tune_cus_cpi.yml`  <br />
- download _runs_ files: https://github.com/HannesStark/3DInfomax/tree/master/runs/PNA_qmugs_NTXentMultiplePositives_620000_123_25-08_09-19-52 <br />
+ Download _runs_ files: https://github.com/HannesStark/3DInfomax/tree/master/runs/PNA_qmugs_NTXentMultiplePositives_620000_123_25-08_09-19-52 <br />
   ~~~
   python train_cuscpi.py --config best_configs/tune_cus_cpi.yml
   ~~~
