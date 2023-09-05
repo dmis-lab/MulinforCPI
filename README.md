@@ -1,4 +1,4 @@
-# 3DinforCPI
+# MulinforCPI
 
 A PyTorch Implementation of Paper:
 
