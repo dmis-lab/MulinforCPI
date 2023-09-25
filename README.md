@@ -23,6 +23,12 @@ In our experiment we use cross, we used the cross-cluster validation technique. 
 
 ## **To train MultinforCPI model:**
 
+Set up the environment:
+In our experiment we use, Python 3.7 with PyTorch 1.12.1 + CUDA 11.7.
+~~~
+git clone https://github.com/dmis-lab/MulinforCPI.git
+conda env create -f environment.yml
+~~~
 Your data should be in the format .csv, and the column names are: 'smiles', 'sequence', 'label'.
 1. Generate the 3D fold of protein from the dataset.<br />
 `data_folder: Folder of dataset`<br />
