@@ -645,7 +645,6 @@ def get_arguments():
                         arg_dict[key].append(v)
                 else:
                     arg_dict[key] = value
-
     return args
 
 
