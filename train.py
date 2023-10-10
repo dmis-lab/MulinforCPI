@@ -65,14 +65,11 @@ from trainer.metrics import QM9DenormalizedL1, QM9DenormalizedL2, \
     NegativeSimilarityMultiplePositivesSeparate2d, OGBEvaluator, PearsonR, PositiveProb, NegativeProb, \
     Conformer2DVariance, Conformer3DVariance, PCQM4MEvaluatorWrapper
 from trainer.trainer import Trainer
-
 # turn on for debugging C code like Segmentation Faults
 import faulthandler
 faulthandler.enable()
 install()
 seaborn.set_theme()
-
-
 
 def parse_arguments():
     p = argparse.ArgumentParser()
@@ -129,7 +126,6 @@ def parse_arguments():
     p.add_argument('--transferred_lr', type=float, default=None, help='set to use a different LR for transfer layers')
     p.add_argument('--num_epochs_local_only', type=int, default=1,
                    help='when training with OptimalTransportTrainer, this specifies for how many epochs only the local predictions will get a loss')
-
     p.add_argument('--required_data', default=[],
                    help='what will be included in a batch like [dgl_graph, targets, dgl_graph3d]')
     p.add_argument('--collate_function', default='graph_collate', help='the collate function to use for DataLoader')
@@ -159,8 +155,7 @@ def parse_arguments():
     p.add_argument('--reuse_pre_train_data', type=bool, default=False, help='use all data instead of ignoring that used during pre-training')
     p.add_argument('--transfer_3d', type=bool, default=False, help='set true to load the 3d network instead of the 2d network')
     return p.parse_args()
-
-
+    
 def get_trainer(args, model, data, device, metrics):
     tensorboard_functions = {function: TENSORBOARD_FUNCTIONS[function] for function in args.tensorboard_functions}
     if args.model3d_type:
@@ -202,8 +197,7 @@ def get_trainer(args, model, data, device, metrics):
                        loss_func=globals()[args.loss_func](**args.loss_params), device=device,
                        tensorboard_functions=tensorboard_functions,
                        scheduler_step_per_batch=args.scheduler_step_per_batch)
-
-
+        
 def load_model(args, data, device):
     model = globals()[args.model_type](avg_d=data.avg_degree if hasattr(data, 'avg_degree') else 1, device=device,
                                        **args.model_parameters)
@@ -229,8 +223,7 @@ def load_model(args, data, device):
         else:
             return model, pretrain_args.num_train, pretrain_args.dataset == args.dataset
     return model, None, False
-
-
+    
 def train(args):
     seed_all(args.seed)
     device = torch.device("cuda:0" if torch.cuda.is_available() and args.device == 'cuda' else "cpu")
@@ -286,7 +279,6 @@ def train(args):
         # import pdb
         # pdb.set_trace()
         return train_ogbg(args, device, metrics_dict)
-
 
 def train_geomol(args, device, metrics_dict):
     if args.dataset == 'bace_geomol':
@@ -348,7 +340,6 @@ def train_geomol(args, device, metrics_dict):
         return val_metrics, test_metrics, trainer.writer.log_dir
     return val_metrics
 
-
 def train_qm9_geomol_featurization(args, device, metrics_dict):
     all_data = QM9GeomolFeaturization(return_types=args.required_data, target_tasks=args.targets, device=device,
                                       dist_embedding=args.dist_embedding, num_radial=args.num_radial)
@@ -358,9 +349,6 @@ def train_qm9_geomol_featurization(args, device, metrics_dict):
     test_idx = all_idx[len(model_idx): len(model_idx) + int(0.1 * len(all_data))]
     val_idx = all_idx[len(model_idx) + len(test_idx):]
     train_idx = model_idx[:args.num_train]
-    # for debugging purposes:
-    # test_idx = all_idx[len(model_idx): len(model_idx) + 200]
-    # val_idx = all_idx[len(model_idx) + len(test_idx): len(model_idx) + len(test_idx) + 3000]
 
     model = globals()[args.model_type](node_dim=all_data[0][0].z.shape[1], edge_dim=all_data[0][0].edge_attr.shape[1],
                                        **args.model_parameters)
@@ -398,7 +386,6 @@ def train_qm9_geomol_featurization(args, device, metrics_dict):
         return val_metrics, test_metrics, trainer.writer.log_dir
     return val_metrics
 
-
 def train_pcqm4m(args, device, metrics_dict):
     dataset = DglPCQM4MDataset(smiles2graph=smiles2graph)
     split_idx = dataset.get_idx_split()
@@ -426,7 +413,6 @@ def train_pcqm4m(args, device, metrics_dict):
         return val_metrics, test_metrics, trainer.writer.log_dir
     return val_metrics
 
-
 def train_ogbg(args, device, metrics_dict):
     dataset = OGBGDatasetExtension(return_types=args.required_data, device=device, name=args.dataset)
     split_idx = dataset.get_idx_split()
@@ -438,12 +424,6 @@ def train_ogbg(args, device, metrics_dict):
         split_idx["train"] = all_idx[len(split_idx["train"])+len(split_idx["valid"]):]
     collate_function = globals()[args.collate_function] if args.collate_params == {} else globals()[
         args.collate_function](**args.collate_params)
-
-    # import pdb
-    # pdb.set_trace()
-
-
-
     train_loader = DataLoader(Subset(dataset, split_idx["train"]), batch_size=args.batch_size, shuffle=True,
                               collate_fn=collate_function)
     val_loader = DataLoader(Subset(dataset, split_idx["valid"]), batch_size=args.batch_size, shuffle=False,
@@ -452,7 +432,7 @@ def train_ogbg(args, device, metrics_dict):
                              collate_fn=collate_function)
 
     model, num_pretrain, transfer_from_same_dataset = load_model(args, data=dataset, device=device)
-
+    
     metrics = {metric: metrics_dict[metric] for metric in args.metrics}
     metrics[args.dataset] = metrics_dict[args.dataset]
     args.main_metric = args.dataset
@@ -464,7 +444,6 @@ def train_ogbg(args, device, metrics_dict):
         test_metrics = trainer.evaluation(test_loader, data_split='test')
         return val_metrics, test_metrics, trainer.writer.log_dir
     return val_metrics
-
 
 def train_zinc(args, device, metrics_dict):
     train_data = ZINCDataset(split='train', device=device)
@@ -491,7 +470,6 @@ def train_zinc(args, device, metrics_dict):
         test_metrics = trainer.evaluation(test_loader, data_split='test')
         return val_metrics, test_metrics, trainer.writer.log_dir
     return val_metrics
-
 
 def train_geom(args, device, metrics_dict):
     if args.dataset == 'drugs':
@@ -581,10 +559,6 @@ def train_qm9(args, device, metrics_dict):
         train_idx = all_idx[:args.num_train]
         val_idx = all_idx[len(train_idx): len(train_idx) + args.num_val]
         test_idx = all_idx[len(train_idx) + args.num_val: len(train_idx) + 2*args.num_val]
-    # for debugging purposes:
-    # test_idx = all_idx[len(model_idx): len(model_idx) + 20]
-    # val_idx = all_idx[len(model_idx) + len(test_idx): len(model_idx) + len(test_idx) + 30]
-
     model, num_pretrain, transfer_from_same_dataset = load_model(args, data=all_data, device=device)
     if transfer_from_same_dataset:
         train_idx = model_idx[num_pretrain: num_pretrain + args.num_train]
