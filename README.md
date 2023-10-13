@@ -87,6 +87,15 @@ CASF-2016: http://www.pdbbind.org.cn/casf.php <br />
   ~~~
   python inferencecpi.py --config=best_configs/inference_cpi.yml
   ~~~
+## **Citation:**
+If you find the models useful in your research, please consider citing the paper:
+~~~
+@article{nguyen20233dinforcpi,
+  title={3DinforCPI: Enhancing Efficiency of Compound-Protein Interaction Prediction Through Novel Perspectives on Multi-level Information Integration},
+  author={Nguyen, Ngoc-Quang and Park, Sejeong and Gim, Mogan and Kang, Jaewoo},
+  year={2023}
+}
+~~~
 
 
 ## License
