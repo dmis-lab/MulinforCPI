@@ -11,7 +11,7 @@ Forecasting the interaction between compounds and proteins is crucial for discov
 
 
 ## **Clustering the dataset:**
-In our experiment we use cross, we used the cross-cluster validation technique. Leave one out for testing while the validation set is randomly taken from training set with the ratio 20/80.<br />
+In our experiment we use cross, we used the cross-cluster validation technique. Leave one out for testing while the validation set is randomly taken from the training set with a ratio 20/80.<br />
   `data_file: The file contains dataset (Davis,KIBA,metz)`<br />
   `output_folder: The folder contains five clusters`<br />
   ~~~
@@ -66,7 +66,7 @@ The output of ESM fold. The 3D fold contains 1) The Card, 2) Atom Number, 3) Ato
   ~~~
 5. Train the model <br />
  Change the `data_path: the processed data folder in .pt format ( Output of step 4.)` in `best_configs/tune_cus_cpi.yml`  <br />
- To save time and result reimplementation please down load the pre-trained file:
+ To save time and result reimplementation please download the pre-trained file:
  Download _runs_ files: https://github.com/HannesStark/3DInfomax/tree/master/runs/PNA_qmugs_NTXentMultiplePositives_620000_123_25-08_09-19-52 <br />
   ~~~
   python train_cuscpi.py --config best_configs/tune_cus_cpi.yml
