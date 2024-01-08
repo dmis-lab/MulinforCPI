@@ -2,7 +2,7 @@
 
 A PyTorch Implementation of Paper:
 
-**MulinforCPI: enhancing precision of compound-protein interaction prediction through novel perspectives on multi-level information integration**
+**[MulinforCPI: enhancing precision of compound-protein interaction prediction through novel perspectives on multi-level information integration](https://academic.oup.com/bib/article/25/1/bbad484/7510975)**
 
 Our repository uses 3DInformax from https://github.com/HannesStark/3DInfomax as a backbone for pretraining PNA for compound information extraction and ESM_Fold from https://github.com/facebookresearch/esm for predicting protein fold.
 
