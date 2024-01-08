@@ -90,10 +90,15 @@ CASF-2016: http://www.pdbbind.org.cn/casf.php <br />
 ## **Citation:**
 If you find the models useful in your research, please consider citing the paper:
 ~~~
-@article{nguyen20233dinforcpi,
-  title={3DinforCPI: Enhancing Efficiency of Compound-Protein Interaction Prediction Through Novel Perspectives on Multi-level Information Integration},
+@article{nguyen2024mulinforcpi,
+  title={MulinforCPI: enhancing precision of compound--protein interaction prediction through novel perspectives on multi-level information integration},
   author={Nguyen, Ngoc-Quang and Park, Sejeong and Gim, Mogan and Kang, Jaewoo},
-  year={2023}
+  journal={Briefings in Bioinformatics},
+  volume={25},
+  number={1},
+  pages={bbad484},
+  year={2024},
+  publisher={Oxford University Press}
 }
 ~~~
 
