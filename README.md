@@ -50,8 +50,9 @@ The output of ESM fold. The 3D fold contains 1) The Card, 2) Atom Number, 3) Ato
 `data_folder: Folder of Training dataset` <br />
 `output_folder: Folder of processed file` <br />
 `prot_dict: _data.csvdic.csv file in output folder of ESM prediction.`<br />
+`data_name: "davis,bindingdb,kiba,metz..."`<br />
   ~~~
-  python match_protein_index_esm.py #data_folder #output_folder #prot_dict
+  python match_protein_index_esm.py #data_folder #output_folder #prot_dict #data_name
   ~~~
 
 4. Generate the pickle .pt file for training <br />
