@@ -21,7 +21,7 @@ In our experiment we use cross, we used the cross-cluster validation technique. 
 
 
 
-## **To train MultinforCPI model:**
+## **To train MulinforCPI model:**
 
 Set up the environment:
 In our experiment we use, Python 3.7 with PyTorch 1.12.1 + CUDA 11.7.
